@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoang Quoc Tran — Korean Linguistics &amp; Translation</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Portrait photo framing */
+    .portrait-img {
+      object-position: center 42%;
+    }
+
+    /* Apple-style Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hide scrollbar on mobile top nav */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-[#1d1d1f] dark:bg-[#0d1117] dark:text-[#e6edf3] selection:bg-[#0066cc]/15 selection:text-[#0066cc] dark:selection:bg-[#58a6ff]/20 dark:selection:text-[#58a6ff]">
+
+  <!-- Minimalist Academic Top Navigation Bar (al-folio / tadat-ling style + Apple blur) -->
+  <header class="sticky top-0 z-50 bg-white/85 dark:bg-[#0d1117]/85 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-[860px] mx-auto px-5 sm:px-8 h-13 sm:h-14 flex items-center justify-between gap-4">
+      <!-- Brand Name (Subtle on top-left) -->
+      <a href="#about" class="text-sm sm:text-[15px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#e6edf3] shrink-0">
+        <span class="font-bold">Hoang</span> Quoc Tran
+      </a>
+
+      <!-- Right Navigation Links -->
+      <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto no-scrollbar">
+        <nav class="flex items-center gap-4 sm:gap-5 text-[13px] sm:text-[14px] font-normal">
+          <a href="#about" class="nav-link text-[#0066cc] dark:text-[#58a6ff] font-medium shrink-0 transition-colors">about</a>
+          <a href="#publications" class="nav-link text-gray-600 dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-[#58a6ff] shrink-0 transition-colors">publications</a>
+          <a href="#education" class="nav-link text-gray-600 dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-[#58a6ff] shrink-0 transition-colors">education</a>
+          <a href="#experience" class="nav-link text-gray-600 dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-[#58a6ff] shrink-0 transition-colors">experience</a>
+          <a href="#awards" class="nav-link text-gray-600 dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-[#58a6ff] shrink-0 transition-colors">awards</a>
+        </nav>
+
+        <!-- Theme Switch Button -->
+        <button id="themeToggle" type="button" aria-label="Toggle theme"
+          class="shrink-0 text-gray-500 dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-[#58a6ff] transition-colors p-1.5 rounded-lg cursor-pointer">
+          <i id="themeIcon" class="fa-solid fa-moon text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Single-Column Academic Container (Exact Classic Academic Homepage Proportions) -->
+  <main class="max-w-[860px] mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-20">
+
+    <!-- HERO / ABOUT SECTION (Left Text + Right Portrait Photo, matching tadat-ling.github.io) -->
+    <section id="about" class="scroll-mt-20 reveal is-visible">
+      <!-- Main Header Title -->
+      <div class="mb-6">
+        <h1 class="text-3xl sm:text-[40px] font-light tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] leading-tight">
+          <strong class="font-bold">Hoang Quoc</strong> Tran
+          <span class="block sm:inline text-lg sm:text-2xl font-normal text-gray-500 dark:text-gray-400 sm:ml-2 mt-1 sm:mt-0">
+            (Trần Quốc Hoàng)
+          </span>
+        </h1>
+        <p class="text-[14.5px] sm:text-[15.5px] text-gray-600 dark:text-gray-400 mt-1.5">
+          Undergraduate Researcher in Korean Linguistics &amp; Translation &bull;
+          <a href="https://hanu.edu.vn" target="_blank" rel="noopener" class="text-[#0066cc] dark:text-[#58a6ff] hover:underline">Hanoi University</a>
+        </p>
+      </div>
+
+      <!-- 2-Column Bio + Right Portrait Photo (Floated/Aligned right on desktop, centered top on mobile) -->
+      <div class="flex flex-col-reverse md:flex-row gap-7 md:gap-10 items-start">
+        <!-- Bio Paragraphs -->
+        <div class="flex-1 space-y-4 text-[15.5px] sm:text-[16px] leading-[1.72] text-[#24292f] dark:text-[#c9d1d9]">
+          <p>
+            I am a senior undergraduate student majoring in <strong>Korean Studies (Advanced Program)</strong> at the Department of Korean Language, <strong>Hanoi University (HANU)</strong>, and a former exchange student in Korean Language and Literature at <strong>Kookmin University</strong>, Seoul.
+          </p>
+          <p>
+            My research lies at the intersection of <strong>Korean Linguistics</strong>, <strong>Korean–Vietnamese Translation Studies</strong>, <strong>AI &amp; Machine Translation Evaluation</strong>, and <strong>Second Language Acquisition</strong>. Specifically, I investigate how neural machine translation and Large Language Models (LLMs) handle literary title functions, pragmatic nuances, and cross-linguistic untranslatability between Korean and Vietnamese, alongside empirical studies on L1 tonal transfer and Sino-Korean (Hanja) lexical retention among Vietnamese learners.
+          </p>
+
+          <!-- Academic Contact Links (Inline clean links matching tadat-ling) -->
+          <div class="pt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14.5px]">
+            <a href="mailto:hoangquoctran04@gmail.com" class="inline-flex items-center gap-1.5 text-[#0066cc] dark:text-[#58a6ff] hover:underline font-medium">
+              <i class="fa-regular fa-envelope text-xs"></i>
+              <span>hoangquoctran04@gmail.com</span>
+            </a>
+            <button type="button" onclick="copyEmail()" class="inline-flex items-center gap-1.5 text-gray-500 dark:text-gray-400 hover:text-[#1d1d1f] dark:hover:text-white transition-colors cursor-pointer text-[13.5px]">
+              <i class="fa-regular fa-copy text-xs"></i>
+              <span id="copyLabel">Copy email</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Portrait Photo (Clean borderless rounded rectangle like academic pages) -->
+        <figure class="w-48 sm:w-52 md:w-[215px] shrink-0 mx-auto md:mx-0">
+          <div class="aspect-[4/4.6] w-full overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 shadow-xs bg-gray-100 dark:bg-gray-900">
+            <img src="IMG_7215.jpg"
+                 alt="Hoang Quoc Tran"
+                 onerror="this.onerror=null; this.src='https://placehold.co/400x460/f1f5f9/1e293b?text=IMG_7215.jpg';"
+                 class="portrait-img w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]" />
+          </div>
+          <figcaption class="mt-2 text-center md:text-left text-xs text-gray-500 dark:text-gray-400 leading-snug">
+            Hanoi, Vietnam &bull; Korean Linguistics
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="my-10 sm:my-12 border-gray-200 dark:border-gray-800" />
+
+    <!-- RESEARCH INTERESTS -->
+    <section id="interests" class="reveal">
+      <h2 class="text-xl sm:text-[23px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] mb-4">
+        Research Interests
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-[#24292f] dark:text-[#c9d1d9] list-disc list-inside">
+        <li><strong>Korean Linguistics:</strong> Syntax, Grammar &amp; Phonology</li>
+        <li><strong>Translation Studies:</strong> Korean–Vietnamese Literary &amp; Audiovisual</li>
+        <li><strong>Computational Translation:</strong> AI &amp; LLM Translation Evaluation</li>
+        <li><strong>Second Language Acquisition:</strong> Phonetic Transfer &amp; Hanja Lexicon</li>
+      </ul>
+    </section>
+
+    <hr class="my-10 sm:my-12 border-gray-200 dark:border-gray-800" />
+
+    <!-- PUBLICATIONS & PRESENTATIONS (Chronological Academic Bibliography Style) -->
+    <section id="publications" class="scroll-mt-20 reveal">
+      <h2 class="text-xl sm:text-[23px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] mb-6">
+        Publications &amp; Presentations
+      </h2>
+
+      <!-- Journal Articles -->
+      <div class="mb-7">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3.5">
+          Journal Articles
+        </h3>
+        <div class="space-y-4 text-[15px] leading-[1.68] text-[#24292f] dark:text-[#c9d1d9]">
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-blue-50 text-[#0066cc] dark:bg-blue-950/60 dark:text-[#58a6ff] border border-blue-200/60 dark:border-blue-800/50">
+              Journal
+            </span>
+            <p>
+              <strong>Trần, Quốc Hoàng.</strong> (2026). Case study on Characteristics of Korean-Vietnamese literary title translation by selected Artificial Intelligence tools: An approach based on Nord’s title function framework. <em>Korea Journal</em>, Korea Research Association of Vietnam (KRAV).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conference Proceedings -->
+      <div class="mb-7">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3.5">
+          Conference Proceedings
+        </h3>
+        <div class="space-y-4 text-[15px] leading-[1.68] text-[#24292f] dark:text-[#c9d1d9]">
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/50">
+              Conf.
+            </span>
+            <p>
+              Phạm, Thị Ngọc, Nguyễn, Thanh Vân, &amp; <strong>Trần, Quốc Hoàng.</strong> (2026). The ability of selected AI tools to handle Vietnamese–Korean untranslatability: An analysis of conversational data from the film <em>Face Off 6</em>. <em>International Academic Conference</em>, Hanoi University of Industry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic Conference Presentations -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3.5">
+          Conference Presentations
+        </h3>
+        <div class="space-y-4 text-[15px] leading-[1.68] text-[#24292f] dark:text-[#c9d1d9]">
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-medium rounded bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              2026
+            </span>
+            <p>
+              <strong>Trần, Quốc Hoàng.</strong> (2026). A study of AI tools for supporting Korean translation. <em>2026 University-Level Academic Conference</em>, Hanoi University. <span class="text-[#0066cc] dark:text-[#58a6ff] font-medium">(Rated Good)</span>
+            </p>
+          </div>
+
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-medium rounded bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              2024
+            </span>
+            <p>
+              <strong>Trần, Quốc Hoàng.</strong> (2024). A study on Negative Transfer of using Vietnamese tones in the pronunciation of Korean by Vietnamese learners. <em>Annual Academic Conference for Undergraduate Students</em>, Department of Korean Language, Hanoi University.
+            </p>
+          </div>
+
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-medium rounded bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              2024
+            </span>
+            <p>
+              <strong>Trần, Quốc Hoàng</strong>, Trần, Ngọc Minh, &amp; Dương, Minh Khuê. (2024). A study on the EPR model in South Korea and lessons for Vietnamese enterprises. <em>Annual Academic Conference for Undergraduate Students</em>, Department of Korean Language, Hanoi University.
+            </p>
+          </div>
+
+          <div class="flex gap-3.5 items-start">
+            <span class="shrink-0 mt-1 px-2 py-0.5 text-[11px] font-medium rounded bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              2023
+            </span>
+            <p>
+              <strong>Trần, Quốc Hoàng.</strong> (2023). A study on the effects of “Impression Exposure” of Korean Chinese letters on Korean vocabulary retention among Vietnamese learners. <em>Annual Academic Conference for Undergraduate Students</em>, Department of Korean Language, Hanoi University.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-10 sm:my-12 border-gray-200 dark:border-gray-800" />
+
+    <!-- EDUCATION -->
+    <section id="education" class="scroll-mt-20 reveal">
+      <h2 class="text-xl sm:text-[23px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] mb-6">
+        Education
+      </h2>
+
+      <div class="space-y-6">
+        <!-- HANU -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[16px] text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Hanoi University (HANU)
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400">2022 – Expected Jun 2027</span>
+          </div>
+          <p class="text-[14.5px] text-gray-700 dark:text-gray-300 mt-0.5">
+            B.A. in Korean Studies (Advanced Program), Department of Korean Language
+          </p>
+          <ul class="mt-1.5 space-y-1 text-[14.5px] text-gray-600 dark:text-gray-400 list-disc list-outside ml-5">
+            <li>Cumulative GPA: <strong>3.85 / 4.00</strong></li>
+            <li>Recipient of the Academic Encouragement Scholarship for 6/6 consecutive semesters.</li>
+          </ul>
+        </div>
+
+        <!-- Kookmin -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[16px] text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Kookmin University (Seoul, South Korea)
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400">2025</span>
+          </div>
+          <p class="text-[14.5px] text-gray-700 dark:text-gray-300 mt-0.5">
+            Exchange Student, Department of Korean Language and Literature
+          </p>
+          <ul class="mt-1.5 space-y-1 text-[14.5px] text-gray-600 dark:text-gray-400 list-disc list-outside ml-5">
+            <li>GPA: <strong>4.39 / 4.50</strong> (98.7 / 100) across 27 credits (Spring 2025: 4.50/4.5; Fall 2025: 4.32/4.5).</li>
+            <li>Selected Coursework: <em>Theories of Korean Grammar (A+), Practical Writing in Korean (A+), Speech Communication (A+), Computer Programming 2 (A+), Startup Ecosystem &amp; Entrepreneurial Finance (A+), Marketing, Organizational Behavior.</em></li>
+          </ul>
+        </div>
+
+        <!-- Son Tay High School -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[16px] text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Son Tay High School for the Gifted
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400">2019 – 2022</span>
+          </div>
+          <p class="text-[14.5px] text-gray-600 dark:text-gray-400 mt-0.5">Hanoi, Vietnam</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-10 sm:my-12 border-gray-200 dark:border-gray-800" />
+
+    <!-- EXPERIENCE & LEADERSHIP -->
+    <section id="experience" class="scroll-mt-20 reveal">
+      <h2 class="text-xl sm:text-[23px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] mb-6">
+        Experience &amp; Activities
+      </h2>
+
+      <div class="space-y-5 text-[15px]">
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Reporter — Editorial Department, Korean Association in Hanoi (하노이한인회)
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400 shrink-0">Mar 2026 – Present</span>
+          </div>
+          <p class="text-[14.5px] text-gray-600 dark:text-gray-400 mt-1">
+            Cover local Vietnamese news and write journalistic articles in Korean for the Korean expatriate community in Hanoi.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Part-time Interpreter — Consular Section, Embassy of the Republic of Korea
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400 shrink-0">Hanoi, Vietnam</span>
+          </div>
+          <p class="text-[14.5px] text-gray-600 dark:text-gray-400 mt-1">
+            Provided Korean–Vietnamese consecutive interpretation supporting consular operations and citizen services.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc]">
+              CEO &amp; Founder — Korean Learning Mobile App Startup
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400 shrink-0">2024 – 2025</span>
+          </div>
+          <p class="text-[14.5px] text-gray-600 dark:text-gray-400 mt-1">
+            Led product ideation and development for a Korean language learning mobile application, reaching the <strong>Top 5</strong> at the <em>Social Innovation Launch</em> startup competition.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc]">
+              Freelance Korean Language Instructor
+            </h3>
+            <span class="text-[13.5px] text-gray-500 dark:text-gray-400 shrink-0">Hanoi, Vietnam</span>
+          </div>
+          <p class="text-[14.5px] text-gray-600 dark:text-gray-400 mt-1">
+            Designed curriculum and taught beginner-level Korean courses to Vietnamese learners.
+          </p>
+        </div>
+
+        <div class="pt-1">
+          <h3 class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc] mb-2">
+            International Exchange &amp; Campus Leadership
+          </h3>
+          <ul class="space-y-1.5 text-[14.5px] text-gray-600 dark:text-gray-400 list-disc list-outside ml-5 leading-relaxed">
+            <li><strong>Content Creator &amp; Supporter, WeKO (KOICA Korea):</strong> Produced digital storytelling campaigns on Korea's Official Development Assistance (ODA).</li>
+            <li><strong>Fellow, Daesang ETFF (Bali, Indonesia, 2025):</strong> Filmed and produced cross-cultural media projects on-site in Bali.</li>
+            <li><strong>Supporter, KOCCA Vietnam &amp; Member, Vietnam–Korea Cultural Exchange Center (2024):</strong> Promoted Korean creative industries and bilateral cultural exchange.</li>
+            <li><strong>External Relations Member, DEL HANU &amp; Content Curator, TEDxHANU (2022–2023):</strong> Co-organized two official TEDx conferences and managed external partnerships.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-10 sm:my-12 border-gray-200 dark:border-gray-800" />
+
+    <!-- HONORS, AWARDS & CERTIFICATIONS -->
+    <section id="awards" class="scroll-mt-20 reveal">
+      <h2 class="text-xl sm:text-[23px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f0f6fc] mb-5">
+        Honors, Awards &amp; Certifications
+      </h2>
+
+      <!-- Language Proficiency Inline Summary -->
+      <div class="mb-6 p-4 rounded-xl bg-gray-50 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800 text-[14.5px]">
+        <span class="font-semibold text-[#1d1d1f] dark:text-[#f0f6fc] block sm:inline mr-2">Language Proficiency:</span>
+        <span class="text-gray-700 dark:text-gray-300">
+          <strong>TOPIK Level 6</strong> (Korean) &bull;
+          <strong>IELTS 7.0</strong> Overall (English) &bull;
+          <strong>HSK Level 4</strong> (Chinese, expected early 2027)
+        </span>
+      </div>
+
+      <!-- Clean Chronological Awards List -->
+      <ul class="space-y-2.5 text-[14.5px] text-[#24292f] dark:text-[#c9d1d9]">
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>First Prize</strong>, Essay Contest on Study Abroad Life in Korea (한국 유학 생활 수기 공모전)</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2025</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Top 5 Finalist</strong>, Social Innovation Launch Startup Competition</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2025</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Korea Foundation – Samsung Scholarship</strong></span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">Recipient</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Bong &amp; Sul Scholarship</strong> (Baemin Korea)</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">Recipient</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Academic Encouragement Scholarship</strong>, Hanoi University (6/6 consecutive semesters)</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2022 – 2026</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>First Prize</strong>, Korean Speaking Contest — Foreign Trade University (FTU)</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2024</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>First Prize</strong>, Korean Literature Dramatization Contest</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2024</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Bronze Medal</strong>, Saigon Model United Nations (S.MUN)</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2023</span>
+        </li>
+        <li class="flex justify-between items-baseline gap-4">
+          <span><strong>Third Prize</strong>, Korean Language Enthusiasts Contest — Hanoi University of Industry</span>
+          <span class="text-[13px] text-gray-500 dark:text-gray-400 shrink-0">2023</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Minimalist Academic Footer -->
+  <footer class="border-t border-gray-200 dark:border-gray-800 py-7 text-center text-xs text-gray-500 dark:text-gray-400">
+    &copy; Copyright 2026 Hoang Quoc Tran. Hosted by GitHub Pages.
+  </footer>
+
+  <!-- Scripts: Theme Toggle, Apple Scroll Reveal & Active Nav Highlight -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlEl = document.documentElement;
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun text-sm' : 'fa-solid fa-moon text-sm';
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const next = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+    });
+
+    // Apple-style Scroll Reveal via IntersectionObserver
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // Active navigation link tracking
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+              const isMatch = link.getAttribute('href') === `#${id}`;
+              link.classList.toggle('text-[#0066cc]', isMatch);
+              link.classList.toggle('dark:text-[#58a6ff]', isMatch);
+              link.classList.toggle('font-medium', isMatch);
+              link.classList.toggle('text-gray-600', !isMatch);
+              link.classList.toggle('dark:text-gray-400', !isMatch);
+            });
+          }
+        });
+      }, {
+        rootMargin: '-25% 0px -65% 0px'
+      });
+
+      sections.forEach((sec) => navObserver.observe(sec));
+    });
+
+    function copyEmail() {
+      const temp = document.createElement('input');
+      temp.value = 'hoangquoctran04@gmail.com';
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+
+      const label = document.getElementById('copyLabel');
+      label.innerText = 'Copied!';
+      setTimeout(() => { label.innerText = 'Copy email'; }, 2000);
+    }
+  </script>
+</body>
+</html>
